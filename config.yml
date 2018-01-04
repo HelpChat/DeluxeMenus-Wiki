@@ -318,7 +318,8 @@
 # This config is sensitive to yaml formatting errors
 # KEEP A BACKUP WHEN EDITING YOUR FILE BEFORE UPLOADING TO YOUR SERVER!!!
 # Make sure every String you modify or add is enclosed in 'apostrophes'
-# Tip: How to create a separated menu 
+#
+# Below is a tutorial on how to create a separate menu 
 # gui_menus:
 #   MenuName:
 #     file: MenuName.yml
