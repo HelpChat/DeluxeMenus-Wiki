@@ -1,1 +1,2 @@
 # DeluxeMenus
+DeluxeMenus configs
