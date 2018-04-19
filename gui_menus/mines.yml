@@ -1,10 +1,12 @@
 # ---------------------------------------------------------------------- #
-# THIS MENU WAS MADE USING DELUXEMENUS v1.10.4
-# gui_menus:
-#   mines:
-#     file: mines.yml
-# ADD THIS INSIDE config.yml AND mines.yml INSIDE gui_menus FOLDER
-# THEN RELOAD THE PLUGIN (/dm reload)
+#              THIS MENU WAS MADE USING DELUXEMENUS v1.10.4              #
+# ---------------------------------------------------------------------- #
+# gui_menus:                                                             #
+#   mines:                                                               #
+#     file: mines.yml                                                    #
+#                                                                        #
+# ADD THIS INSIDE config.yml AND mines.yml INSIDE gui_menus FOLDER       #
+# THEN RELOAD THE PLUGIN (/dm reload)                                    #
 # ---------------------------------------------------------------------- #
 menu_title: '&9Mines'
 open_command:
