@@ -1,0 +1,179 @@
+# ---------------------------------------------------------------------- #
+# THIS MENU WAS MADE USING DELUXEMENUS v1.10.4
+# gui_menus:
+#   mines:
+#     file: mines.yml
+# ADD THIS INSIDE config.yml AND mines.yml INSIDE gui_menus FOLDER
+# THEN RELOAD THE PLUGIN (/dm reload)
+# ---------------------------------------------------------------------- #
+menu_title: '&9Mines'
+open_command:
+- mine
+- mines
+size: 9
+open_requirement:
+  requirements:
+    permission:
+      type: has permission
+      permission: some.permission
+      deny_commands:
+      - '[message] You dont have permission to open menu: mines'
+items:
+  'A-UNLOCKED':
+    material: 160
+    data: 5
+    slot: 1
+    priority: 2
+    display_name: '&aA Mine'
+    lore:
+    - '&fClick to travel to'
+    - '&fthe A Mine.'
+    - ''
+    - '&a&lUNLOCKED'
+    left_click_commands:
+    - '[close]'
+    - '[player] warp A'
+    right_click_commands:
+    - '[close]'
+    - '[player] warp A'
+  'A-CURRENT':
+    material: 160
+    data: 4
+    slot: 1
+    priority: 1
+    view_requirement:
+      requirements:
+        anything_here:
+          type: string equals ignorecase
+          input: '%ezrankspro_rank%'
+          output: A
+    display_name: '&eA Mine'
+    lore:
+    - '&fClick to travel to'
+    - '&fthe A Mine.'
+    - ''
+    - '&e&lCURRENT'
+    left_click_commands:
+    - '[close]'
+    - '[player] warp A'
+    right_click_commands:
+    - '[close]'
+    - '[player] warp A'
+#
+# B MINE
+#
+  'B-LOCKED':
+    material: 160
+    data: 14
+    slot: 2
+    priority: 3
+    display_name: '&cB Mine'
+    lore:
+    - '&fClick to travel to'
+    - '&fthe B Mine.'
+    - ''
+    - '&c&lLOCKED'
+  'B-UNLOCKED':
+    material: 160
+    data: 5
+    slot: 2
+    priority: 2
+    view_requirement:
+      requirements:
+        anything_here:
+          type: has permission
+          permission: ezranks.rank.b
+    display_name: '&aB Mine'
+    lore:
+    - '&fClick to travel to'
+    - '&fthe B Mine.'
+    - ''
+    - '&a&lUNLOCKED'
+    left_click_commands:
+    - '[close]'
+    - '[player] warp B'
+    right_click_commands:
+    - '[close]'
+    - '[player] warp B'
+  'B-CURRENT':
+    material: 160
+    data: 4
+    slot: 2
+    priority: 1
+    view_requirement:
+      requirements:
+        anything_here:
+          type: string equals ignorecase
+          input: '%ezrankspro_rank%'
+          output: B
+    display_name: '&eB Mine'
+    lore:
+    - '&fClick to travel to'
+    - '&fthe B Mine.'
+    - ''
+    - '&e&lCURRENT'
+    left_click_commands:
+    - '[close]'
+    - '[player] warp B'
+    right_click_commands:
+    - '[close]'
+    - '[player] warp B'
+#
+# C MINE
+#
+  'C-LOCKED':
+    material: 160
+    data: 14
+    slot: 3
+    priority: 3
+    display_name: '&cC Mine'
+    lore:
+    - '&fClick to travel to'
+    - '&fthe C Mine.'
+    - ''
+    - '&c&lLOCKED'
+  'C-UNLOCKED':
+    material: 160
+    data: 5
+    slot: 3
+    priority: 2
+    view_requirement:
+      requirements:
+        anything_here:
+          type: has permission
+          permission: ezranks.rank.C
+    display_name: '&aC Mine'
+    lore:
+    - '&fClick to travel to'
+    - '&fthe C Mine.'
+    - ''
+    - '&a&lUNLOCKED'
+    left_click_commands:
+    - '[close]'
+    - '[player] warp C'
+    right_click_commands:
+    - '[close]'
+    - '[player] warp C'
+  'C-CURRENT':
+    material: 160
+    data: 4
+    slot: 3
+    priority: 1
+    view_requirement:
+      requirements:
+        anything_here:
+          type: string equals ignorecase
+          input: '%ezrankspro_rank%'
+          output: C
+    display_name: '&eC Mine'
+    lore:
+    - '&fClick to travel to'
+    - '&fthe C Mine.'
+    - ''
+    - '&e&lCURRENT'
+    left_click_commands:
+    - '[close]'
+    - '[player] warp C'
+    right_click_commands:
+    - '[close]'
+    - '[player] warp C'
