@@ -1,4 +1,63 @@
- 
-  
-   
-   
+# ---------------------------------------------------------------------- #
+#              THIS MENU WAS MADE USING DELUXEMENUS v1.10.4              #
+# ---------------------------------------------------------------------- #
+# gui_menus:                                                             #
+#   serverselector:                                                      #
+#     file: serverselector.yml                                           #
+#                                                                        #
+# ADD THIS INSIDE config.yml AND serverselector.yml INSIDE gui_menus     #
+# FOLDER, THEN RELOAD THE PLUGIN (/dm reload)                            #
+# ---------------------------------------------------------------------- #
+menu_title: '&9Server'
+open_command: server
+size: 9
+update_interval: 1
+items:
+  'vanilla_server':
+    material: GRASS
+    slot: 2
+    priority: 1
+    update: true
+    view_requirement:
+      requirements:
+        vanila_online:
+          type: string equals ignorecase
+          input: '%pinger_online_127.0.0.1:25565%'
+          output: '&aOnline'
+    display_name: '&7Vanilla'
+    lore:
+    - '&7Online: &a%pinger_players_127.0.0.1:25565%' #Note: You have to use your server ip:port here!
+    - '&7Description: &bOnly vanilla!'
+    - ''
+    - '&aclick to join!'
+    left_click_commands:
+    - '[close]'
+    - '[message] &7Connecting to server &aVanilla&7...'
+    - '[connect] vanilla'
+  'vanilla_offline':
+    material: BARRIER
+    slot: 2
+    priority: 2
+    update: true
+    display_name: '&7Vanilla &4[Offline]'
+    lore:
+    - '&cThis server is currently offline'
+    - '&cPlease contact a staff-member,'
+    - '&cif this problem still exists after some'
+    - '&ctime'
+    - ''
+    - '&aClick to refresh!'
+    left_click_commands:
+    - '[refresh]'
+  'games_server':
+    material: IRON_SWORD
+    slot: 6
+    update: true
+    display_name: '&9Games'
+    lore:
+    - '&7Online: %server_online%'
+    - '&7Description: &bThe best minigames EVER!'
+    - ''
+    - '&cYou are already on this server'
+    left_click_commands:
+    - '[message] &cYou are already on this server!'
