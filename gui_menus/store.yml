@@ -1,6 +1,6 @@
-  # ------------------ #
-  # WITH VAULT ECONOMY #
-  # ------------------ #
+# ------------- #
+# VAULT ECONOMY #
+# ------------- #
   '0':
     material: stone
     data: 1
@@ -32,3 +32,73 @@
     - '[console] eco give %player_name% 25'
     - '[console] clear %player_name% stone:1 1'
     - '[message] &2Shop &8> &fYou sold &a1 x Granite &ffor &a$25&f.'
+# --------------------- #
+# TOKEN ENCHANT ECONOMY #
+# --------------------- #
+  '0':
+    material: stone
+    data: 1
+    slot: 0
+    display_name: '&fGranite'
+    lore:
+    - '&8* &7Buy for: &f100 &cTokens'
+    - '&8* &7Sell for: &f25 &aTokens'
+    left_click_requirement:
+      requirements:
+        aything_here:
+          type: '>='
+          input: '%tokenenchant_tokens_num%'
+          output: '100'
+          deny_commands:
+          - '[message] &4Shop &8> &fYou need &c100 Tokens &fto buy &c1 x Granite&f.'
+    right_click_requirement:
+      requirements:
+        aything_here:
+          type: string equals
+          input: '%checkitem_mat:STONE,data:1%'
+          output: 'yes'
+          deny_commands:
+          - '[message] &4Shop &8> &fYou don''t have &c1 x Granite &fto sell.'
+    left_click_commands:
+    - '[console] te remove %player_name% 100'
+    - '[console] give %player_name% stone:1 1'
+    - '[message] &2Shop &8> &fYou bought &a1 x Granite &ffor &a100 Tokens&f.'
+    right_click_commands:
+    - '[console] te add %player_name% 25'
+    - '[console] clear %player_name% stone:1 1'
+    - '[message] &2Shop &8> &fYou sold &a1 x Granite &ffor &a25 Tokens&f.'
+# --------------------- #
+# PLAYER POINTS ECONOMY #
+# --------------------- #
+  '0':
+    material: stone
+    data: 1
+    slot: 0
+    display_name: '&fGranite'
+    lore:
+    - '&8* &7Buy for: &f100 &cPoints'
+    - '&8* &7Sell for: &f25 &aPoints'
+    left_click_requirement:
+      requirements:
+        aything_here:
+          type: '>='
+          input: '%playerpoints_points%'
+          output: '100'
+          deny_commands:
+          - '[message] &4Shop &8> &fYou need &c100 Points &fto buy &c1 x Granite&f.'
+    right_click_requirement:
+      requirements:
+        aything_here:
+          type: string equals
+          input: '%checkitem_mat:STONE,data:1%'
+          output: 'yes'
+          deny_commands:
+          - '[message] &4Shop &8> &fYou don''t have &c1 x Granite &fto sell.'
+    left_click_commands:
+    - '[console] points take %player_name% 100'
+    - '[console] give %player_name% stone:1 1'
+    - '[message] &2Shop &8> &fYou bought &a1 x Granite &ffor &a100 Points&f.'
+    right_click_commands:
+    - '[console] points give %player_name% 25'
+    - '[console] clear %player_name% stone:1 1'
+    - '[message] &2Shop &8> &fYou sold &a1 x Granite &ffor &a25 Points&f.'
