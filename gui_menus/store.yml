@@ -1,0 +1,34 @@
+  # ------------------ #
+  # WITH VAULT ECONOMY #
+  # ------------------ #
+  '0':
+    material: stone
+    data: 1
+    slot: 0
+    display_name: '&fGranite'
+    lore:
+    - '&8* &7Buy for: &c$&f100'
+    - '&8* &7Sell for: &a$&f25'
+    left_click_requirement:
+      requirements:
+        aything_here:
+          type: has money
+          amount: 100
+          deny_commands:
+          - '[message] &4Shop &8> &fYou need &c$100 &fto buy &c1 x Granite&f.'
+    right_click_requirement:
+      requirements:
+        aything_here:
+          type: string equals
+          input: '%checkitem_mat:STONE,data:1%'
+          output: 'yes'
+          deny_commands:
+          - '[message] &4Shop &8> &fYou don''t have &c1 x Granite &fto sell.'
+    left_click_commands:
+    - '[console] eco take %player_name% 100'
+    - '[console] give %player_name% stone:1 1'
+    - '[message] &2Shop &8> &fYou bought &a1 x Granite &ffor &a$100&f.'
+    right_click_commands:
+    - '[console] eco give %player_name% 25'
+    - '[console] clear %player_name% stone:1 1'
+    - '[message] &2Shop &8> &fYou sold &a1 x Granite &ffor &a$25&f.'
