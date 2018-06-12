@@ -15,7 +15,7 @@ items:
   'cooldown':
     material: 160
     data: 4
-    slot: 12
+    slot: 0
     priority: 1
     update: true
     view_requirement:
@@ -34,7 +34,7 @@ items:
   'available':
     material: 160
     data: 5
-    slot: 12
+    slot: 0
     priority: 2
     view_requirement:
       requirements:
@@ -57,7 +57,7 @@ items:
   'locked':
     material: 160
     data: 14
-    slot: 12
+    slot: 0
     priority: 3
     display_name: '&cEXAMPLE KIT'
     lore:
