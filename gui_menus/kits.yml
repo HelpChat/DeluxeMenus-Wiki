@@ -1,1 +1,64 @@
-a
+menu_title: '&8KITS'
+open_command:
+- kit
+- kits
+size: 9
+update_interval: 1
+open_requirement:
+  requirements:
+    permission:
+      type: has permission
+      permission: essentials.kit
+      deny_commands:
+      - '[message] You dont have permission to open menu: kits'
+items:  
+  'cooldown':
+    material: 160
+    data: 4
+    slot: 12
+    priority: 1
+    update: true
+    view_requirement:
+      requirements:
+        permission:
+          type: has permission
+          permission: essentials.kits.example
+        available:
+          type: string equals ignorecase
+          input: '%essentials_kit_is_available_example%'
+          output: 'no'
+    display_name: '&eEXAMPLE KIT'
+    lore:
+    - '&6* &eStatus: &6ON COOLDOWN'
+    - '&6* &eAvilable in: &6%essentials_kit_time_until_available_example%'
+  'available':
+    material: 160
+    data: 5
+    slot: 12
+    priority: 2
+    view_requirement:
+      requirements:
+        permission:
+          type: has permission
+          permission: essentials.kits.example
+        available:
+          type: string equals ignorecase
+          input: '%essentials_kit_is_available_example%'
+          output: 'yes'
+    display_name: '&aEXAMPLE KIT'
+    lore:
+    - '&2* &aStatus: &2AVAILABLE'
+    - ''
+    - '&2* &aClick &2to claim'
+    left_click_commands:
+    - '[player] kit example'
+    right_click_commands:
+    - '[player] kit example'
+  'locked':
+    material: 160
+    data: 14
+    slot: 12
+    priority: 3
+    display_name: '&cEXAMPLE KIT'
+    lore:
+    - '&4* &cStatus: &4LOCKED'
