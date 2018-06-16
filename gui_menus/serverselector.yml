@@ -1,16 +1,21 @@
 # ---------------------------------------------------------------------- #
 #              THIS MENU WAS MADE USING DELUXEMENUS v1.10.4              #
 # ---------------------------------------------------------------------- #
+#                                                                        #
+# NOTE: This menu was made for a seperate yaml-file!                     #
+#       Add the following code to the config.yml of DeluxeMenus and      #
+#       reload the plugin (/dm reload).                                  #
+#                                                                        #
 # gui_menus:                                                             #
 #   serverselector:                                                      #
 #     file: serverselector.yml                                           #
 #                                                                        #
-# ADD THIS INSIDE config.yml AND serverselector.yml INSIDE gui_menus     #
-# FOLDER, THEN RELOAD THE PLUGIN (/dm reload)                            #
+# After that, replace the newly created file with this one and reload    #
+# again!                                                                 #
 # ---------------------------------------------------------------------- #
 menu_title: '&9Server'
 open_command: server
-size: 9
+size: 9 #Needs to be a multiple of 9 (9, 18, 27, ...) and max. 54.
 update_interval: 1
 items:
   'vanilla_server':
@@ -23,13 +28,13 @@ items:
         vanila_online:
           type: string equals ignorecase
           input: '%pinger_online_127.0.0.1:25565%'
-          output: '&aOnline'
+          output: '&aOnline' #This is the output, that is set in the config.yml of PlaceholderAPI.
     display_name: '&7Vanilla'
     lore:
-    - '&7Online: &a%pinger_players_127.0.0.1:25565%' #Note: You have to use your server ip:port here!
+    - '&7Online: &a%pinger_players_127.0.0.1:25565%' #NOTE: The pinger-placeholder requires the ip:port. domains won't work!
     - '&7Description: &bOnly vanilla!'
     - ''
-    - '&aclick to join!'
+    - '&aClick to join!'
     left_click_commands:
     - '[close]'
     - '[message] &7Connecting to server &aVanilla&7...'
