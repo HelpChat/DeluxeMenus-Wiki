@@ -26,8 +26,9 @@ items:
     left_click_requirement:
       requirements:
         aything_here:
-          type: has money
-          amount: 100
+          type: '>='
+          input: '%vault_eco_balance%'
+          output: 100
           deny_commands:
           - '[message] &4Shop &8> &fYou need &c$100 &fto buy &c1 x Granite&f.'
     right_click_requirement:
