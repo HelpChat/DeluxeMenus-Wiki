@@ -25,7 +25,7 @@ items:
     - '&8* &7Sell for: &a$&f25'
     left_click_requirement:
       requirements:
-        aything_here:
+        anything_here:
           type: '>='
           input: '%vault_eco_balance%'
           output: 100
@@ -33,7 +33,7 @@ items:
           - '[message] &4Shop &8> &fYou need &c$100 &fto buy &c1 x Granite&f.'
     right_click_requirement:
       requirements:
-        aything_here:
+        anything_here:
           type: string equals
           input: '%checkitem_mat:STONE,data:1%'
           output: 'yes'
@@ -64,7 +64,7 @@ items:
     - '&8* &7Sell for: &f25 &aTokens'
     left_click_requirement:
       requirements:
-        aything_here:
+        anything_here:
           type: '>='
           input: '%tokenenchant_tokens_num%'
           output: '100'
@@ -72,7 +72,7 @@ items:
           - '[message] &4Shop &8> &fYou need &c100 Tokens &fto buy &c1 x Granite&f.'
     right_click_requirement:
       requirements:
-        aything_here:
+        anything_here:
           type: string equals
           input: '%checkitem_mat:STONE,data:1%'
           output: 'yes'
@@ -103,7 +103,7 @@ items:
     - '&8* &7Sell for: &f25 &aPoints'
     left_click_requirement:
       requirements:
-        aything_here:
+        anything_here:
           type: '>='
           input: '%playerpoints_points%'
           output: '100'
@@ -111,7 +111,7 @@ items:
           - '[message] &4Shop &8> &fYou need &c100 Points &fto buy &c1 x Granite&f.'
     right_click_requirement:
       requirements:
-        aything_here:
+        anything_here:
           type: string equals
           input: '%checkitem_mat:STONE,data:1%'
           output: 'yes'
