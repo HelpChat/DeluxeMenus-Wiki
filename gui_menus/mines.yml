@@ -1,6 +1,11 @@
 # ---------------------------------------------------------------------- #
 #              THIS MENU WAS MADE USING DELUXEMENUS v1.10.4              #
 # ---------------------------------------------------------------------- #
+#                                                                        #
+# NOTE: This menu was made for a seperate yaml-file!                     #
+#       Add the following code to the config.yml of DeluxeMenus and      #
+#       reload the plugin (/dm reload).                                  #
+#                                                                        #
 # gui_menus:                                                             #
 #   mines:                                                               #
 #     file: mines.yml                                                    #
