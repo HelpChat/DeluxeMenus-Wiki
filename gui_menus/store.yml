@@ -31,14 +31,14 @@ items:
     - '&8* &7Sell for: &a$&f25'
     left_click_requirement:
       requirements:
-        aything_here:
+        anything_here:
           type: has money
           output: 100
           deny_commands:
           - '[message] &4Shop &8> &fYou need &c$100 &fto buy &c1 x Granite&f.'
     right_click_requirement:
       requirements:
-        aything_here:
+        anything_here:
           type: string equals
           input: '%checkitem_mat:STONE,data:1%'
           output: 'yes'
@@ -70,7 +70,7 @@ items:
     - '&8* &7Sell for: &f25 &aTokens'
     left_click_requirement:
       requirements:
-        aything_here:
+        anything_here:
           type: '>='
           input: '%tokenenchant_tokens_num%'
           output: '100'
@@ -78,7 +78,7 @@ items:
           - '[message] &4Shop &8> &fYou need &c100 Tokens &fto buy &c1 x Granite&f.'
     right_click_requirement:
       requirements:
-        aything_here:
+        anything_here:
           type: string equals
           input: '%checkitem_mat:STONE,data:1%'
           output: 'yes'
@@ -110,7 +110,7 @@ items:
     - '&8* &7Sell for: &f25 &aPoints'
     left_click_requirement:
       requirements:
-        aything_here:
+        anything_here:
           type: '>='
           input: '%playerpoints_points%'
           output: '100'
@@ -118,7 +118,7 @@ items:
           - '[message] &4Shop &8> &fYou need &c100 Points &fto buy &c1 x Granite&f.'
     right_click_requirement:
       requirements:
-        aything_here:
+        anything_here:
           type: string equals
           input: '%checkitem_mat:STONE,data:1%'
           output: 'yes'
@@ -150,7 +150,7 @@ items:
     - '&8* &7Sell for: &f1 XP-Level'
     left_click_requirement:
       requirements:
-        aything_here:
+        anything_here:
           type: '>='
           input: '%player_total_xp%'
           output: '34' # Used http://www.pernsteiner.org/minecraft/levelcalc.html for calculation
@@ -158,7 +158,7 @@ items:
           - '[message] &4Shop &8> &fYou need &c2 XP-Levels (34 XP) &fto buy &c1 x Granite&f.'
     right_click_requirement:
       requirements:
-        aything_here:
+        anything_here:
           type: string equals
           input: '%checkitem_mat:STONE,data:1%'
           output: 'yes'
