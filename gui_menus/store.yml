@@ -10,8 +10,9 @@
 #   store:                                                               #
 #     file: store.yml                                                    #
 #                                                                        #
-# ADD THIS INSIDE config.yml AND store.yml INSIDE gui_menus FOLDER,      #
-# THEN RELOAD THE PLUGIN (/dm reload)                                    #
+# Add the above code in the config.yml and the content for the right     #
+# shop (from "items:" to "### End of <...> shop") in the store.yml, that #
+# you'll be finding in the newly created gui_menus folder.               #
 # ---------------------------------------------------------------------- #
 
 ##########################################################################
@@ -51,7 +52,8 @@ items:
     - '[console] eco give %player_name% 25'
     - '[console] clear %player_name% stone:1 1'
     - '[message] &2Shop &8> &fYou sold &a1 x Granite &ffor &a$25&f.'
-    
+### End of the vault economy shop
+
 ##########################################################################
 # + ------------------------------------------------------------------ + #
 # |                       TOKEN ENCHANT ECONOMY                        | #
@@ -90,7 +92,8 @@ items:
     - '[console] te add %player_name% 25'
     - '[console] clear %player_name% stone:1 1'
     - '[message] &2Shop &8> &fYou sold &a1 x Granite &ffor &a25 Tokens&f.'
-    
+### End of the token enchant shop
+
 ##########################################################################
 # + ------------------------------------------------------------------ + #
 # |                       PLAYER POINTS ECONOMY                        | #
@@ -129,7 +132,8 @@ items:
     - '[console] points give %player_name% 25'
     - '[console] clear %player_name% stone:1 1'
     - '[message] &2Shop &8> &fYou sold &a1 x Granite &ffor &a25 Points&f.'
-    
+### End of the player points shop
+
 ##########################################################################
 # + ------------------------------------------------------------------ + #
 # |                         PLAYER XP ECONOMY                          | #
@@ -168,3 +172,4 @@ items:
     - '[console] xp give %player_name% 1L' # L means Level. You could also just type 17 for 17 XP.
     - '[console] clear %player_name% stone:1 1'
     - '[message] &2Shop &8> &fYou sold &a1 x Granite &ffor &a1 XP-Level&f.'
+### End of the XP economy shop
