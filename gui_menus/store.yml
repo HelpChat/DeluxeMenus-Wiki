@@ -72,7 +72,7 @@ items:
       requirements:
         anything_here:
           type: '>='
-          input: '%tokenenchant_tokens_num%'
+          input: '%javascript_tokenenchant_tokens%'
           output: '100'
           deny_commands:
           - '[message] &4Shop &8> &fYou need &c100 Tokens &fto buy &c1 x Granite&f.'
