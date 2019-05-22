@@ -33,7 +33,7 @@ items:
       requirements:
         anything_here:
           type: has money
-          output: 100
+          amount: 100
           deny_commands:
           - '[message] &4Shop &8> &fYou need &c$100 &fto buy &c1 x Granite&f.'
     right_click_requirement:
@@ -59,6 +59,9 @@ items:
 # |                       TOKEN ENCHANT ECONOMY                        | #
 # + ------------------------------------------------------------------ + #
 ##########################################################################
+# The placeholder used in the left click requirement is a JavaScript placeholder made by TE's author
+# to be able to use tokens in DM requirement.
+# Check this for more info about it. https://www.spigotmc.org/wiki/placeholderapi-javascript-expansion-scripts/#tokenenchant-token-value
 items:
   '0':
     material: stone
@@ -72,7 +75,7 @@ items:
       requirements:
         anything_here:
           type: '>='
-          input: '%tokenenchant_tokens_num%'
+          input: '%javascript_tokenenchant_token%' # Check line 62-64 for more info about this placeholder.
           output: '100'
           deny_commands:
           - '[message] &4Shop &8> &fYou need &c100 Tokens &fto buy &c1 x Granite&f.'
@@ -139,6 +142,7 @@ items:
 # |                         PLAYER XP ECONOMY                          | #
 # + ------------------------------------------------------------------ + #
 ##########################################################################
+# You can use this placeholder %player_level% instead of total xp to check the level.
 items:
   '0':
     material: stone
@@ -165,7 +169,7 @@ items:
           deny_commands:
           - '[message] &4Shop &8> &fYou don''t have &c1 x Granite &fto sell.'
     left_click_commands:
-    - '[console] xp give %player_name% -1L' # We need to "give" a negative amount, to remove XP :-/
+    - '[console] xp give %player_name% -2L' # We need to "give" a negative amount, to remove XP :-/
     - '[console] give %player_name% stone:1 1'
     - '[message] &2Shop &8> &fYou bought &a1 x Granite &ffor &a2 XP-Level&f.'
     right_click_commands:
