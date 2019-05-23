@@ -156,7 +156,7 @@ items:
       requirements:
         anything_here:
           type: '>='
-          input: '%player_total_xp%'
+          input: '%player_total_exp%'
           output: '34' # Used http://www.pernsteiner.org/minecraft/levelcalc.html for calculation
           deny_commands:
           - '[message] &4Shop &8> &fYou need &c2 XP-Levels (34 XP) &fto buy &c1 x Granite&f.'
