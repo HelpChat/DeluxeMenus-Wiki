@@ -28,8 +28,7 @@ open_requirement:
       - '[message] You dont have permission to open menu: kits'
 items:  
   'cooldown':
-    material: 160
-    data: 4
+    material: YELLOW_STAINED_GLASS_PANE
     slot: 4
     priority: 1
     update: true
@@ -47,8 +46,7 @@ items:
     - '&6* &eStatus: &6ON COOLDOWN'
     - '&6* &eAvilable in: &6%essentials_kit_time_until_available_example%'
   'available':
-    material: 160
-    data: 5
+    material: LIME_STAINED_GLASS_PANE
     slot: 4
     priority: 2
     view_requirement:
@@ -70,8 +68,7 @@ items:
     right_click_commands:
     - '[player] kit example'
   'locked':
-    material: 160
-    data: 14
+    material: RED_STAINED_GLASS_PANE
     slot: 4
     priority: 3
     display_name: '&cEXAMPLE KIT'
