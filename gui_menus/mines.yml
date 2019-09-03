@@ -23,8 +23,8 @@ open_requirement:
     permission:
       type: has permission
       permission: some.permission
-      deny_commands:
-      - '[message] You dont have permission to open menu: mines'
+  deny_commands:
+  - '[message] You dont have permission to open menu: mines'
 items:
   'A-UNLOCKED':
     material: 160
