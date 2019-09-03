@@ -24,8 +24,8 @@ open_requirement:
     permission:
       type: has permission
       permission: essentials.kit
-      deny_commands:
-      - '[message] You dont have permission to open menu: kits'
+  deny_commands:
+  - '[message] You dont have permission to open menu: kits'
 items:  
   'cooldown':
     material: 160
