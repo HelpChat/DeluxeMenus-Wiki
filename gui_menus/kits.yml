@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------- #
-#              THIS MENU WAS MADE USING DELUXEMENUS v1.10.5              #
+#                This Menu Was Made Using DeluxeMenus 1.12.0             #
 # ---------------------------------------------------------------------- #
 #                                                                        #
 # NOTE: This menu was made for a seperate yaml-file!                     #
@@ -13,11 +13,11 @@
 # ADD THIS INSIDE config.yml AND kits.yml INSIDE gui_menus FOLDER,       #
 # THEN RELOAD THE PLUGIN (/dm reload)                                    #
 # ---------------------------------------------------------------------- #
-menu_title: '&8KITS'
+menu_title: '&aKits Menu'
 open_command:
 - kit
 - kits
-size: 9
+size: 27
 update_interval: 1
 open_requirement:
   requirements:
@@ -25,12 +25,13 @@ open_requirement:
       type: has permission
       permission: essentials.kit
   deny_commands:
-  - '[message] You dont have permission to open menu: kits'
+  - '[message] '
+  - '[message] &8[&bServer&8] &7You do not have the required permission!'
+  - '[message] '
 items:  
   'cooldown':
-    material: 160
-    data: 4
-    slot: 4
+    material: Gray_Dye
+    slot: 13
     priority: 1
     update: true
     view_requirement:
@@ -42,15 +43,17 @@ items:
           type: string equals ignorecase
           input: '%essentials_kit_is_available_example%'
           output: 'no'
-    display_name: '&eEXAMPLE KIT'
+    display_name: '&r'
     lore:
-    - '&6* &eStatus: &6ON COOLDOWN'
-    - '&6* &eAvilable in: &6%essentials_kit_time_until_available_example%'
+    - '&b* &eKit&8: &7Example'
+    - '&b* &eStatus&8: &4On Cooldown'
+    - '&b* &eAvailable In&8: &7%essentials_kit_time_until_available_example%'
+    - '&r'
   'available':
-    material: 160
-    data: 5
-    slot: 4
+    material: Lime_Dye
+    slot: 13
     priority: 2
+    update: true
     view_requirement:
       requirements:
         permission:
@@ -60,20 +63,30 @@ items:
           type: string equals ignorecase
           input: '%essentials_kit_is_available_example%'
           output: 'yes'
-    display_name: '&aEXAMPLE KIT'
+    display_name: '&r'
     lore:
-    - '&2* &aStatus: &2AVAILABLE'
+    - '&b* &eKit&8: &7Example'
+    - '&b* &eStatus: &2Available'
     - ''
-    - '&2* &aClick &2to claim'
+    - '&b* &a&oClick to Claim'
+    - '&r'
     left_click_commands:
     - '[player] kit example'
+    - '[refresh]'
+    - '[refresh]<delay=100>'
     right_click_commands:
     - '[player] kit example'
+    - '[refresh]'
+    - '[refresh]<delay=100>'
   'locked':
-    material: 160
-    data: 14
-    slot: 4
+    material: Red_Dye
+    slot: 13
     priority: 3
-    display_name: '&cEXAMPLE KIT'
+    update: true
+    display_name: '&r'
     lore:
-    - '&4* &cStatus: &4LOCKED'
+    - '&b* &eKit&8: &7Example'
+    - '&b* &eStatus&8: &4Locked'
+    - '&r'
+    
+    
