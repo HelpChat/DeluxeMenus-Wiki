@@ -66,7 +66,7 @@ items:
     display_name: '&r'
     lore:
     - '&b* &eKit&8: &7Example'
-    - '&b* &eStatus: &2Available'
+    - '&b* &eStatus&8: &2Available'
     - ''
     - '&b* &a&oClick to Claim'
     - '&r'
