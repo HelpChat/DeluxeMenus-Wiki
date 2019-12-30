@@ -1,40 +1,40 @@
-# DeluxeMenus 1.10.2 main configuration file
-# 
+# DeluxeMenus 1.12.0 main configuration file
+#
 # check_updates: <true/false>
 #   Should DeluxeMenus check if there are any updates available on Spigot and inform ops there is an update available.
-# 
+#
 # ==============================================================
-# 
+#
 # PER ITEM PERMISSION AND PRIORITY INFO:
-# 
+#
 # Per item permissions and priorities are optional.
 # High priority = 1, Lowest priority = 2147483647.
 # This allows you to show different items for a specific menu slot depending on the highest priority
 # item permission a player has. This makes your menus very dynamic :)
-# 
+#
 # You CAN NOT specify a permission without a priority!
 # You CAN specify a priority without a permission.
 # You should always create a low priority item without a permission which will act as the no permission
 # item if a player does not have permission for any of the items that require permission, otherwise
 # no item will be set in the slot if a player does not have permission for any of the permission items.
-# 
+#
 # ==============================================================
-# 
+#
 # GUI menu configuration:
-# 
+#
 # You can create as many GUI menus you like.
 # Every menu name must be unique. There can not be duplicate menu names!
 # Players must have permission for a GUI menu to open one!
 # Ops should automatically have permission for any GUI menu.
-# 
+#
 # Permission to open a GUI menu is: deluxemenus.guimenu.<menuName>
-# 
+#
 # You specify the command which opens the GUI menu. Make sure this command
 # does not conflict with any existing commands on your server!
 # A GUI menu without an open command specified will not be loaded!
-# 
+#
 # GUI menus configuration layout:
-# 
+#
 # gui_menus:
 #   <menuName>:
 #     menu_title: '<title of menu goes here>'
@@ -60,6 +60,7 @@
 #         priority: <this is used if you have multiple items set for the same slot>
 #         view_requirement: <see view requirement info below. The lowest priority item a player meets all view requirements for will be shown>
 #         update: <true/false if this item should update placeholders on the interval set for the gui menu this item is in>
+#         unbreakable: <true/false if this item should be unbreakable>
 #         hide_attributes: <true/false if this item should display item attributes>
 #         hide_enchantments: <true/false if this item should display item enchantment / level> (useful for 'enchantment glow' items)
 #         hide_effects: <true/false if this item should display item effect attributes>
@@ -81,50 +82,46 @@
 #         right_click_commands:
 #         - '[player] spawn'
 #         right_click_requirement: <see how to use this option below>
-# 
-# 
+#
+#
 # You can specify if a GUI menu should be loaded from another file:
-# 
+#
 # gui_menus:
 #   <menuName>:
 #     file: 'menuName.yml'
-# 
+#
 # This allows you to keep your config clean and not have tons of GUI menus cluttering it.
 # The file format the GUI menu is loaded from must end in .yml
 # GUI menus loaded from other configuration files must follow a specific format as well...
 # To get started loading GUI menus from different files, simply create a GUI menu in this config and specify the file it will load from.
 # After that is done, use /dm reload and DeluxeMenus will create a folder and file specific to the GUI menu you specified.
 # If the file specified is created by DeluxeMenus (because it did not exist), a default GUI menu layout will be saved to that file.
-# From here you can edit it to your liking and use /dm reload to update your GUI menu! 
-# 
+# From here you can edit it to your liking and use /dm reload to update your GUI menu!
+#
 # This loading from external config files is only available for gui menus and will not work for click menus yet....
-# 
+#
 # banner_meta must be listed with a specific format:
 # banner_meta:
 # - <DyeColor>;<PatternType>
-# 
+#
 # Valid DyeColor names can be found here: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/DyeColor.html
 # Valid PatternTypes can be found here: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/block/banner/PatternType.html
 # ==============================================================
-# 
+#
 # Requirement information
-# 
+#
 # Requirements can be set as the following:
-# 
+#
 # open_requirement: This requirement is checked when a menu is opened
 # view_requirement: This requirement determines if an item should be set in a menu slot
 # left_click_requirement: This requirement is checked when an item is left clicked
 # right_click_requirement: This requirement is checked when an item is right clicked
-# 
+#
 # Requirement types:
 #   javascript - Evaluates a javascript expression that must return true or false
 #     configuration options:
 #       expression
-# 
-#   has money - Checks if a player has enough money (Vault required)
-#     configuration options:
-#       amount
-# 
+#
 #   has item - Checks if a player has a specific item
 #     configuration options:
 #       material
@@ -132,59 +129,68 @@
 #       data
 #       name
 #       lore
-# 
+#
+#   has money - Checks if a player has enough money (Vault required)
+#     configuration options:
+#       amount
+#
 #   has permission - Checks if a player has a specific permission
 #     configuration options:
 #       permission
-# 
+#
 #   string contains - Checks if a string contains another string
 #     configuration options:
 #       input
 #       output
-# 
+#
 #   string equals - Checks if a string equals another string
 #     configuration options:
 #       input
 #       output
-# 
+#
 #   stringequalsignorecase - Checks if a string equals another string ignoring case
 #     configuration options:
 #       input
 #       output
-# 
+#
 #   > - Checks if a number is greater than another number
 #     configuration options:
 #       input
 #       output
-# 
+#
 #   >= - Checks if a number is greater than or equal to another number
 #     configuration options:
 #       input
 #       output
-# 
+#
 #   == - Checks if a number is equal to another number
 #     configuration options:
 #       input
 #       output
-# 
+#
 #   <= - Checks if a number is less than or equal to another number
 #     configuration options:
 #       input
 #       output
-# 
+#
 #   < - Checks if a number is less than another number
 #     configuration options:
 #       input
 #       output
-# 
-# 
-# 
+#
+#   regex matches - Checks if a placeholder parsed string matches a regex pattern
+#     configuration options:
+#       input
+#       regex
+#
+#
+#
 # So why would we want to use requirements?
 # By default, DeluxeMenus does not require a player meet any conditions to open your menu.
 # If you want to require a menu need a certain permission node for it to be accessed, or a certain amount of money
 # for a menu to be opened, You do that with an 'open_requirement'.
 # Below is an example of how you would deny opening a menu if the viewer does not have permission:
-# 
+#
 # menu_title: 'Menu that requires permission to open'
 # open_command: testmenu
 # size: 9
@@ -195,10 +201,10 @@
 #       permission: 'testmenu.open'
 #       deny_commands:
 #       - '[message] you do not have permission to open testmenu'
-# 
-# 
+#
+#
 # Below is a full example of use cases for requirements:
-# 
+#
 # 				menu_title: 'Menu that requires permission to open'
 # 					open_command: testmenu
 # 					size: 9
@@ -246,86 +252,79 @@
 # 					          - '[message] you are not staff'
 # 					    right_click_commands:
 # 					    - '[message] you are staff'
-# 
+#
 # deny_commands: are optional and will be executed if the requirement is not met.
 # ==============================================================
-# 
-# 
+#
+#
 # You do not need to specify item options that you don't use!
 # The only required entries for a gui menu item to be valid are:
-# 
+#
 # A valid material
 # A valid slot
-# 
+#
 # Every item in the items list must have a unique <item identifier>
-# 
+#
 # If you choose to update placeholders for a specific item, you must specify update_interval: <time>
 # in the GUI menu options for the specific GUI menu.
 # Only GUI menus with at least one item that has update: true will update those specific items placeholders.
-# 
-# Every 'action' defined left, right, open_commands etc must start with a specific identifier to know what to do for the action being executed.
-# Valid action identifiers:
-# 
+#
+# Every click_command must start with a specific identifier to know what to do for the execution.
+# Valid click_command identifiers:
+#
 # [console] - Execute a command from the console
 # Usage: - '[console] <command with no slash>'
-# 
+#
 # [player] - Execute a command for the menu viewer
 # Usage: - '[player] <command with no slash>'
-# 
+#
 # [commandevent] - Fire a PlayerCommandPreprocessEvent for commands that do not use the bukkit command system
 # Usage: - '[commandevent] <command with no slash>'
-# 
+#
 # [message] - Send a message to the menu viewer
-# Usage: - '[message] <message to send to the player>'
-# 
+# Usage: - [message] <message to send to the player
+#
+# [broadcast] - Broadcast a message to the server
+# Usage: - '[broadcast] <message>
+#
+# [chat] - Send a chat message as the player performing the action
+# Usage: - '[chat] <message>
+#
 # [openguimenu] - Open a GUI menu (can only be used in GUI menu click_commands)
 # Usage: - '[openguimenu] <guiMenuName>'
-# 
+#
 # [connect] - Connect to the specified bungee server
 # Usage: - '[connect] <serverName>'
-# 
+#
 # [close] - Close the viewers open menu
-# Usage: - '[close]'
-# 
+# Usage: - '[close]
+#
 # [refresh] - Refresh items in the current menu view
-# Usage: - '[refresh]'
-# 
+# Usage: - '[refresh]
+#
 # [broadcastsound] - Broadcast a sound to the server
-# Usage: - '[broadcastsound] <sound> <volume> <pitch>'
-# 
+# Usage: - '[broadcastsound]
+#
 # [sound] - Play a sound for a the specific player
-# Usage: - '[sound] <sound> <volume> <pitch>'
-# 
+# Usage: - '[sound]
+#
+# [takemoney] - Take money from a player (requires Vault)
+# Usage: - '[takemoney] <amount>
+#
 # [json] - Send a json message to the menu viewer
 # Usage: - '[json] {"text":"message"}'
-# 
-# [takemoney] - Take an amount of money from the player
-# Usage: - '[takemoney] <amount>'
-# 
-# 
-# 
+#
+#
+#
 # You can delay any of the click command being performed by ending the command with
 # <delay=(time in TICKS)>
 # example:
 #     - '[close]'
 #     - '[message] it has been 5 seconds since the menu closed!<delay=100>'
 #     - '[message] it has been 10 seconds since the menu closed!<delay=200>'
-# 
+#
 # A delay should NOT be added to the [close] or [openguimenu] actions
 # as it could potentially cause unknown issues or glitches with menus.
-# 
-# A NOTE WHEN EDITING THIS OR ANY DeluxeMenus CONFIGURATION FILE:
-# This config is sensitive to yaml formatting errors
-# KEEP A BACKUP WHEN EDITING YOUR FILE BEFORE UPLOADING TO YOUR SERVER!!!
-# Make sure every String you modify or add is enclosed in 'apostrophes'
-#
-# Below is a tutorial on how to create a separate menu 
-# gui_menus:
-#   MenuName:
-#     file: MenuName.yml
-#   MenuName2:
-#     file: MenuName2.yml
-# After that, do /dm reload (twice) and you will found your new menu(s) there: /plugins/DeluxeMenus/gui_menus/
 debug: false
 check_updates: true
 gui_menus:
@@ -377,12 +376,12 @@ gui_menus:
         material: DIRT
         data: 0
         amount: 1
-        slot: 1
+        slot: 2
         priority: 2
         display_name: '&bTeleport to spawn'
         lore:
         - '&bClick to teleport'
         - '&bto the server spawn'
-        click_commands:
+        left_click_commands:
         - '[player] spawn'
         - '[close]'
