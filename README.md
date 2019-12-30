@@ -47,5 +47,5 @@ Default: OP
 
 ## Links
 <a href="https://discord.gg/FtArYRQ" target="_blank"><img src="https://discordapp.com/api/guilds/164280494874165248/embed.png" alt="Discord"></a>  
-[Wiki](https://github.com/help-chat/DeluxeMenus/wiki)  
+[Wiki](https://wiki.helpch.at/clips-plugins/deluxemenus)  
 [SpigotMC](https://www.spigotmc.org/resources/deluxemenus.11734/)
