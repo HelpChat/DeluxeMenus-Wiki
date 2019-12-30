@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------- #
-#              THIS MENU WAS MADE USING DELUXEMENUS v1.10.4              #
+#              THIS MENU WAS MADE USING DELUXEMENUS v1.12.0              #
 # ---------------------------------------------------------------------- #
 #                                                                        #
 # NOTE: This menu was made for a seperate yaml-file!                     #
@@ -15,7 +15,7 @@
 # ---------------------------------------------------------------------- #
 menu_title: '&9Server'
 open_command: server
-size: 9 #Needs to be a multiple of 9 (9, 18, 27, ...) and max. 54.
+size: 9
 update_interval: 1
 items:
   'vanilla_server':
@@ -28,14 +28,20 @@ items:
         vanila_online:
           type: string equals ignorecase
           input: '%pinger_online_127.0.0.1:25565%'
-          output: '&aOnline' #This is the output, that is set in the config.yml of PlaceholderAPI.
+          output: '&aOnline'
     display_name: '&7Vanilla'
     lore:
-    - '&7Online: &a%pinger_players_127.0.0.1:25565%' #NOTE: The pinger-placeholder requires the ip:port. domains won't work!
+    - ''
+    - '&7Online: &a%pinger_players_127.0.0.1:25565%'
     - '&7Description: &bOnly vanilla!'
     - ''
-    - '&aClick to join!'
+    - '&fClick to join!'
+    - ''
     left_click_commands:
+    - '[close]'
+    - '[message] &7Connecting to server &aVanilla&7...'
+    - '[connect] vanilla'
+    right_click_commands:
     - '[close]'
     - '[message] &7Connecting to server &aVanilla&7...'
     - '[connect] vanilla'
@@ -44,15 +50,17 @@ items:
     slot: 2
     priority: 2
     update: true
-    display_name: '&7Vanilla &4[Offline]'
+    display_name: '&7Vanilla'
     lore:
+    - ''
     - '&cThis server is currently offline'
     - '&cPlease contact a staff-member,'
-    - '&cif this problem still exists after some'
-    - '&ctime'
     - ''
-    - '&aClick to refresh!'
+    - '&fClick to refresh!'
+    - ''
     left_click_commands:
+    - '[refresh]'
+    right_click_commands:
     - '[refresh]'
   'games_server':
     material: IRON_SWORD
@@ -60,9 +68,15 @@ items:
     update: true
     display_name: '&9Games'
     lore:
+    - ''
     - '&7Online: %server_online%'
     - '&7Description: &bThe best minigames EVER!'
     - ''
-    - '&cYou are already on this server'
+    - '&fYou are here!'
+    - ''
     left_click_commands:
     - '[message] &cYou are already on this server!'
+    - '[close]'
+    right_click_commands:
+    - '[message] &cYou are already on this server!'
+    - '[close]'
