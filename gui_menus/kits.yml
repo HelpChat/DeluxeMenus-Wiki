@@ -28,9 +28,9 @@ open_requirement:
   - '[message] '
   - '[message] &8[&bServer&8] &7You do not have the required permission!'
   - '[message] '
-items:  
+items:
   'cooldown':
-    material: Gray_Dye
+    material: ORANGE_CONCRETE
     slot: 13
     priority: 1
     update: true
@@ -43,14 +43,18 @@ items:
           type: string equals ignorecase
           input: '%essentials_kit_is_available_example%'
           output: 'no'
-    display_name: '&r'
+    display_name: ' '
     lore:
-    - '&b* &eKit&8: &7Example'
-    - '&b* &eStatus&8: &4On Cooldown'
-    - '&b* &eAvailable In&8: &7%essentials_kit_time_until_available_example%'
-    - '&r'
+    - "&8• &bKit: &7Example"
+    - "&8• &bStatus: &7On Cooldown"
+    - "&8• &bAvailable In: &7%essentials_kit_time_until_available_example%"
+    - ""
+    left_click_commands:
+    - "[refresh]"
+    right_click_commands:
+    - "[refresh]"
   'available':
-    material: Lime_Dye
+    material: LIME_CONCRETE
     slot: 13
     priority: 2
     update: true
@@ -63,30 +67,32 @@ items:
           type: string equals ignorecase
           input: '%essentials_kit_is_available_example%'
           output: 'yes'
-    display_name: '&r'
+    display_name: ' '
     lore:
-    - '&b* &eKit&8: &7Example'
-    - '&b* &eStatus&8: &2Available'
+    - "&8• &bKit: &7Example"
+    - "&8• &bStatus: &7Available"
+    - ""
+    - "&8» &b&nClick to Claim"
     - ''
-    - '&b* &a&oClick to Claim'
-    - '&r'
     left_click_commands:
-    - '[player] kit example'
+    - '[player] essentials:kit example'
     - '[refresh]'
     - '[refresh]<delay=100>'
     right_click_commands:
-    - '[player] kit example'
+    - '[player] essentials:kit example'
     - '[refresh]'
     - '[refresh]<delay=100>'
   'locked':
-    material: Red_Dye
+    material: RED_CONCRETE
     slot: 13
     priority: 3
     update: true
-    display_name: '&r'
+    display_name: ' '
     lore:
-    - '&b* &eKit&8: &7Example'
-    - '&b* &eStatus&8: &4Locked'
-    - '&r'
-    
-    
+    - "&8• &bKit: &7Example"
+    - "&8• &bStatus: &7Locked"
+    - ""
+    left_click_commands:
+    - "[close]"
+    right_click_commands:
+    - "[close]"
