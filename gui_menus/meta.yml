@@ -1,0 +1,50 @@
+open_command: 
+- metamenu
+
+register_command: true
+menu_title: 'MetaMenu'
+inventory_type: HOPPER
+
+open_commands:
+- '[meta] add OpenAttempts INTEGER 1'
+
+open_requirement:
+  requirements:
+    meta:
+      type: 'has meta'
+      key: OpenAttempts
+      meta_type: INTEGER
+      value: 10
+      deny_commands:
+        - '[meta] add OpenAttempts INTEGER 1'
+        - '[message] You need to attempt to open this menu 10 times before it actually opens!'
+        - '[message] current: %deluxemenus_meta_OpenAttempts_INTEGER_{player_xp}%'
+
+items:
+  'ADD':
+    material: DIAMOND_BLOCK
+    slot: 0
+    lore:
+    - "&7Add 1"
+    - "&7Count: &f%deluxemenus_meta_OpenAttempts_INTEGER_0%"
+    left_click_commands:
+    - '[meta] add OpenAttempts INTEGER 1'
+    - '[refresh]'
+  'SUBTRACT':
+    material: DIAMOND
+    slot: 1
+    lore:
+    - "&7Subtract 1"
+    - "&7Count: &f%deluxemenus_meta_OpenAttempts_INTEGER_0%"
+    left_click_commands:
+    - '[meta] subtract OpenAttempts INTEGER 1'
+    - '[refresh]'
+  'DELETE':
+    material: DIRT
+    slot: 2
+    lore:
+    - "&7DELETE"
+    - "&7Count: &f%deluxemenus_meta_OpenAttempts_INTEGER_0%"
+    left_click_commands:
+    - '[meta] set OpenAttempts INTEGER null'
+    - '[refresh]'
