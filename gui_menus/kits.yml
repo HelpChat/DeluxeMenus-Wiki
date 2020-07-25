@@ -39,10 +39,6 @@ items:
         permission:
           type: has permission
           permission: essentials.kits.example
-        available:
-          type: string equals ignorecase
-          input: '%essentials_kit_is_available_example%'
-          output: 'no'
     display_name: ' '
     lore:
     - "&8• &bKit: &7Example"
