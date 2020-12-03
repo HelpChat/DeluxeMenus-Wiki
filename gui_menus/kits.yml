@@ -42,7 +42,7 @@ items:
         available:
           type: string equals ignorecase
           input: '%essentials_kit_is_available_example%'
-          output: 'no'
+          output: '&cOFF'
     display_name: ' '
     lore:
     - "&8• &bKit: &7Example"
@@ -66,7 +66,7 @@ items:
         available:
           type: string equals ignorecase
           input: '%essentials_kit_is_available_example%'
-          output: 'yes'
+          output: '&aON'
     display_name: ' '
     lore:
     - "&8• &bKit: &7Example"
