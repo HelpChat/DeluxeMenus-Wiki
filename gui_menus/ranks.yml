@@ -1,0 +1,118 @@
+menu_title: '&eRank Store!'
+size: 9
+items:
+
+  vip:
+    material: gold_ingot
+    slot: 3
+    priority: 1
+    display_name: '&eVIP Rank'
+    lore:
+    - ''
+    - '&7Rank: &eVIP'
+    - '&7Cost: &a$500'
+    - ''
+    - '&8Left click to purchase.'
+    left_click_commands:
+    - '[takemoney] 500' # We take the 500
+    - '[console] lp user %player_name% parent add vip' # We give them the vip rank
+    left_click_requirement:
+      requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: string equals ignorecase
+          input: '%luckperms_in_group_vip%'
+          output: 'no'
+          deny_commands:
+          - '[message]&cYou already own this rank!'
+          - '[close]'
+        no_rank2: # This requirement will check if they have the vipplus rank, and if they do it won't allow them to purchase the rank
+          type: string equals ignorecase
+          input: '%luckperms_in_group_vipplus%'
+          output: 'no'
+          deny_commands:
+          - '[message]&cYou already own the &eVIP+&c rank!'
+          - '[close]'
+        money: # This requirement will check if they have 500$ and if they don't, it won't allow them to purchase the rank
+          type: has money
+          amount: 500
+          deny_commands:
+          - '[message]&cYou don''t have enough money!'
+          - '[close]'
+    view_requirement:
+      requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do it will show the has_vip item instead.
+          type: string equals ignorecase
+          input: '%luckperms_in_group_vip%'
+          output: 'no'
+        no_rank2: # This requirement will check if they have the vipplus rank, and if they do it will show the has_vip item instead.
+          type: string equals ignorecase
+          input: '%luckperms_in_group_vipplus%'
+          output: 'no'
+
+  has_vip: # This item will show up if they already have the vip rank
+    material: gold_ingot
+    slot: 3
+    priority: 2
+    display_name: '&eVIP Rank'
+    lore:
+    - ''
+    - '&7Rank: &eVIP'
+    - '&7Cost: &a$500'
+    - ''
+    - '&aPURCHASED!'
+
+  vipplus:
+    material: diamond
+    slot: 4
+    priority: 1
+    display_name: '&eVIP+ Rank'
+    lore:
+    - ''
+    - '&7Rank: &eVIP+'
+    - '&7Cost: &a$600'
+    - ''
+    - '&8Left click to purchase.'
+    left_click_commands:
+    - '[takemoney] 600' # We take the 600
+    - '[console] lp user %player_name% parent add vipplus' # We give them the vipplus rank
+    left_click_requirement:
+      requirements:
+        owns_vip: # This requirement will check if they have the vip rank, and if they don't, it won't allow them to purchase this rank
+          type: string equals ignorecase
+          input: '%luckperms_in_group_vip%'
+          output: 'yes'
+          deny_commands:
+          - '[message]&cYou need the rank &eVIP&c to purchase this rank'
+          - '[close]'
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: string equals ignorecase
+          input: '%luckperms_in_group_vipplus%'
+          output: 'no'
+          deny_commands:
+          - '[message]&cYou already own this rank!'
+          - '[close]'
+        money: # This requirement will check if they have 600$ and if they don't, it won't allow them to purchase the rank
+          type: has money
+          amount: 600
+          deny_commands:
+          - '[message]&cYou don''t have enough money!'
+          - '[close]'
+    view_requirement: # This requirement will check if they have the rank, and if they do it will show the has_vipplus item instead.
+      requirements:
+        no_rank:
+          type: string equals ignorecase
+          input: '%luckperms_in_group_vipplus%'
+          output: 'no'
+
+
+  has_vipplus: # This item will show up if they already have the vip rank
+    material: diamond
+    slot: 4
+    priority: 2
+    display_name: '&eVIP+ Rank'
+    lore:
+    - ''
+    - '&7Rank: &eVIP+'
+    - '&7Cost: &a$600'
+    - ''
+    - '&aPURCHASED!'
