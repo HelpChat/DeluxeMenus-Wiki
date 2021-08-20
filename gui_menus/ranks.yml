@@ -1,7 +1,23 @@
+
+# ---------------------------------------------------------------------- #
+#              THIS MENU WAS MADE USING DELUXEMENUS v1.12.0              #
+# ---------------------------------------------------------------------- #
+#                                                                        #
+# NOTE: This menu was made for a seperate yaml-file!                     #
+#       Add the following code to the config.yml of DeluxeMenus and      #
+#       reload the plugin (/dm reload).                                  #
+#                                                                        #
+# gui_menus:                                                             #
+#   ranks:                                                               #
+#     file: ranks.yml                                                    #
+#                                                                        #
+# ADD THIS INSIDE config.yml AND ranks.yml INSIDE gui_menus FOLDER       #
+# THEN RELOAD THE PLUGIN (/dm reload)                                    #
+# ---------------------------------------------------------------------- #
 menu_title: '&eRank Store!'
+open_command: ranks
 size: 9
 items:
-
   vip:
     material: gold_ingot
     slot: 3
