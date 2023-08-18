@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------- #
-#              THIS MENU WAS MADE USING DELUXEMENUS v1.12.0              #
+#              THIS MENU WAS MADE USING DELUXEMENUS v1.13.7              #
 # ---------------------------------------------------------------------- #
 #                                                                        #
 # NOTE: This menu was made for a seperate yaml-file!                     #
@@ -38,23 +38,23 @@ items:
         anything_here:
           type: has money
           amount: 100
-      deny_commands:
-      - '[message] &6Shop &8> &7You need &c$100 &fto buy &c1 x Granite&f.'
+          deny_commands:
+          - '[message] &6Shop &8> &7You need &c$100 &fto buy &c1 x Granite&f.'
     right_click_requirement:
       requirements:
         anything_here:
-          type: string equals
-          input: '%checkitem_mat:GRANITE%'
-          output: 'yes'
-      deny_commands:
-      - '[message] &6Shop &8> &fYou don''t have &c1 x Granite &fto sell.'
+          type: has item # https://wiki.helpch.at/clips-plugins/deluxemenus/options-and-configurations/requirements#has-item
+          material: 'GRANITE'
+          strict: true
+          deny_commands:
+          - '[message] &6Shop &8> &fYou don''t have &c1 x Granite &fto sell.'
     left_click_commands:
     - '[console] eco take %player_name% 100'
-    - '[console] give %player_name% GRANITE 1'
+    - '[console] minecraft:give %player_name% granite 1' # By adding "minecraft:" we avoid accidentally using a command from a plugin like Essentials
     - '[message] &6Shop &8> &fYou bought &a1 x Granite &ffor &a$100&f.'
     right_click_commands:
     - '[console] eco give %player_name% 25'
-    - '[console] clear %player_name% GRANITE 1'
+    - '[console] minecraft:clear %player_name% granite 1' # By adding "minecraft:" we avoid accidentally using a command from a plugin like Essentials
     - '[message] &6Shop &8> &fYou sold &a1 x Granite &ffor &a$25&f.'
 ### End of the vault economy shop
 
@@ -63,9 +63,6 @@ items:
 # |                       TOKEN ENCHANT ECONOMY                        | #
 # + ------------------------------------------------------------------ + #
 ##########################################################################
-# The placeholder used in the left click requirement is a JavaScript placeholder made by TE's author
-# to be able to use tokens in DM requirement.
-# Check this for more info about it. https://www.spigotmc.org/wiki/placeholderapi-javascript-expansion-scripts/#tokenenchant-token-value
 items:
   '0':
     material: GRANITE
@@ -83,25 +80,25 @@ items:
       requirements:
         anything_here:
           type: '>='
-          input: '%javascript_tokenenchant_token%' # Check line 66-68 for more info about this placeholder.
+          input: '%tokenenchant_token_long%'
           output: '100'
-      deny_commands:
-      - '[message] &6Shop &8> &7You need &c100 Tokens &fto buy &c1 x Granite&f.'
+          deny_commands:
+          - '[message] &6Shop &8> &7You need &c100 Tokens &fto buy &c1 x Granite&f.'
     right_click_requirement:
       requirements:
         anything_here:
-          type: string equals
-          input: '%checkitem_mat:GRANITE%'
-          output: 'yes'
-      deny_commands:
-      - '[message] &6Shop &8> &7You don''t have &c1 x Granite &fto sell.'
+          type: has item # https://wiki.helpch.at/clips-plugins/deluxemenus/options-and-configurations/requirements#has-item
+          material: 'GRANITE'
+          strict: true
+          deny_commands:
+          - '[message] &6Shop &8> &7You don''t have &c1 x Granite &fto sell.'
     left_click_commands:
     - '[console] te remove %player_name% 100'
-    - '[console] give %player_name% GRANITE 1'
+    - '[console] minecraft:give %player_name% granite 1' # By adding "minecraft:" we avoid accidentally using a command from a plugin like Essentials
     - '[message] &6Shop &8> &fYou bought &a1 x Granite &ffor &a100 Tokens&f.'
     right_click_commands:
     - '[console] te add %player_name% 25'
-    - '[console] clear %player_name% GRANITE 1'
+    - '[console] minecraft:clear %player_name% granite 1' # By adding "minecraft:" we avoid accidentally using a command from a plugin like Essentials
     - '[message] &6Shop &8> &fYou sold &a1 x Granite &ffor &a25 Tokens&f.'
 ### End of the token enchant shop
 
@@ -129,23 +126,23 @@ items:
           type: '>='
           input: '%playerpoints_points%'
           output: '100'
-      deny_commands:
-      - '[message] &6Shop &8> &7You need &c100 Points &fto buy &c1 x Granite&f.'
+          deny_commands:
+          - '[message] &6Shop &8> &7You need &c100 Points &fto buy &c1 x Granite&f.'
     right_click_requirement:
       requirements:
         anything_here:
-          type: string equals
-          input: '%checkitem_mat:GRANITE%'
-          output: 'yes'
-      deny_commands:
-      - '[message] &6Shop &8> &7You don''t have &c1 x Granite &fto sell.'
+          type: has item # https://wiki.helpch.at/clips-plugins/deluxemenus/options-and-configurations/requirements#has-item
+          material: 'GRANITE'
+          strict: true
+          deny_commands:
+          - '[message] &6Shop &8> &7You don''t have &c1 x Granite &fto sell.'
     left_click_commands:
     - '[console] points take %player_name% 100'
-    - '[console] give %player_name% GRANITE 1'
+    - '[console] minecraft:give %player_name% granite 1' # By adding "minecraft:" we avoid accidentally using a command from a plugin like Essentials
     - '[message] &6Shop &8> &fYou bought &a1 x Granite &ffor &a100 Points&f.'
     right_click_commands:
     - '[console] points give %player_name% 25'
-    - '[console] clear %player_name% GRANITE 1'
+    - '[console] minecraft:clear %player_name% granite 1' # By adding "minecraft:" we avoid accidentally using a command from a plugin like Essentials
     - '[message] &6Shop &8> &fYou sold &a1 x Granite &ffor &a25 Points&f.'
 ### End of the player points shop
 
@@ -173,23 +170,23 @@ items:
         anything_here:
           type: '>='
           input: '%player_total_exp%'
-          output: '34' # Used http://www.pernsteiner.org/minecraft/levelcalc.html for calculation
-      deny_commands:
-      - '[message] &6Shop &8> &7You need &c2 XP-Levels (34 XP) &fto buy &c1 x Granite&f.'
+          output: '16' # Used in-game parsing for calculation for 1.20.1. This website seems outdated: http://www.pernsteiner.org/minecraft/levelcalc.html for calculation
+          deny_commands:
+          - '[message] &6Shop &8> &7You need &c2 XP-Levels (16 XP) &fto buy &c1 x Granite&f.'
     right_click_requirement:
       requirements:
         anything_here:
-          type: string equals
-          input: '%checkitem_mat:GRANITE%'
-          output: 'yes'
-      deny_commands:
-      - '[message] &6Shop &8> &7You don''t have &c1 x Granite &fto sell.'
+          type: has item # https://wiki.helpch.at/clips-plugins/deluxemenus/options-and-configurations/requirements#has-item
+          material: 'GRANITE'
+          strict: true
+          deny_commands:
+          - '[message] &6Shop &8> &7You don''t have &c1 x Granite &fto sell.'
     left_click_commands:
     - '[console] xp give %player_name% -2L' # We need to "give" a negative amount, to remove XP :-/
-    - '[console] give %player_name% GRANITE 1'
+    - '[console] minecraft:give %player_name% granite 1' # By adding "minecraft:" we avoid accidentally using a command from a plugin like Essentials
     - '[message] &6Shop &8> &fYou bought &a1 x Granite &ffor &a2 XP-Level&f.'
     right_click_commands:
     - '[console] xp give %player_name% 1L' # L means Level. You could also just type 17 for 17 XP.
-    - '[console] clear %player_name% GRANITE 1'
+    - '[console] minecraft:clear %player_name% granite 1' # By adding "minecraft:" we avoid accidentally using a command from a plugin like Essentials
     - '[message] &6Shop &8> &fYou sold &a1 x Granite &ffor &a1 XP-Level&f.'
 ### End of the XP economy shop
