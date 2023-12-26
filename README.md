@@ -18,8 +18,10 @@ DeluxeMenus depends on [PlaceholderAPI](https://www.spigotmc.org/resources/place
 Opens the menu <menuName> for yourself  
 * `/dm list`  
 Lists all menus you have access to  
-* `/dm reloads`  
+* `/dm reload`  
 Reloads the menus and settings
+* `/dm execute (player) [action]`
+Execute any action for the player
 
 ## Configuration
 Visit our [wiki](https://github.com/help-chat/DeluxeMenus/wiki) to get info about how to make GUIs, items, etc.  

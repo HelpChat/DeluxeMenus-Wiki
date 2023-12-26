@@ -1,50 +1,280 @@
+menu_title: '&8Count with Meta Menu'
 open_command: 
 - metamenu
-
 register_command: true
-menu_title: 'MetaMenu'
 inventory_type: HOPPER
-
-open_commands:
-- '[meta] add OpenAttempts INTEGER 1'
-
 open_requirement:
   requirements:
     meta:
-      type: 'has meta'
-      key: OpenAttempts
-      meta_type: INTEGER
-      value: 10
-      deny_commands:
-        - '[meta] add OpenAttempts INTEGER 1'
-        - '[message] You need to attempt to open this menu 10 times before it actually opens!'
-        - '[message] current: %deluxemenus_meta_OpenAttempts_INTEGER_{player_xp}%'
-
+      type: has permission
+      permission: deluxemenus.metacounting
+open_commands:
+- '[sound] BLOCK_CHEST_OPEN'
+- '[message] &6&lDeluxe&emenus &8» &7Opening &aMeta &7menu. Config reworked by &ekristophergeou&7.'
 items:
-  'ADD':
+# Start - Diamond
+  'ADD_DIAMOND':
     material: DIAMOND_BLOCK
     slot: 0
+    priority: 1
+    view_requirement:
+      requirements: 
+        meta: 
+          type: 'string equals' 
+          input: '%deluxemenus_meta_BlockSelected_STRING_Diamond%'
+          output: 'Diamond'
+    display_name: '&aDeposit'
     lore:
-    - "&7Add 1"
-    - "&7Count: &f%deluxemenus_meta_OpenAttempts_INTEGER_0%"
-    left_click_commands:
-    - '[meta] add OpenAttempts INTEGER 1'
+    - '&aAdd 1'
+    - '&7Count: &b%deluxemenus_meta_DiamondCounted_INTEGER_0%'
+    click_commands:
+    - '[meta] add DiamondCounted INTEGER 1'
+    - '[sound] ENTITY_ITEM_PICKUP'
     - '[refresh]'
-  'SUBTRACT':
+  'SUBTRACT_DIAMOND':
     material: DIAMOND
     slot: 1
+    priority: 1
+    view_requirement:
+      requirements: 
+        meta: 
+          type: 'string equals' 
+          input: '%deluxemenus_meta_BlockSelected_STRING_Diamond%'
+          output: 'Diamond'
+    display_name: '&cWithdraw'
     lore:
-    - "&7Subtract 1"
-    - "&7Count: &f%deluxemenus_meta_OpenAttempts_INTEGER_0%"
-    left_click_commands:
-    - '[meta] subtract OpenAttempts INTEGER 1'
+    - '&cSubtract 1'
+    - '&7Count: &b%deluxemenus_meta_DiamondCounted_INTEGER_0%'
+    click_requirement: 
+      requirements: 
+        not_null:
+          type: '>='
+          input: '%deluxemenus_meta_DiamondCounted_INTEGER_0%'
+          output: '1'
+    click_commands:
+    - '[meta] subtract DiamondCounted INTEGER 1'
+    - '[sound] ENTITY_ITEM_PICKUP'
     - '[refresh]'
-  'DELETE':
-    material: DIRT
+  'DELETE_DIAMOND':
+    material: BARRIER 
     slot: 2
+    priority: 1
+    view_requirement:
+      requirements: 
+        meta: 
+          type: 'string equals' 
+          input: '%deluxemenus_meta_BlockSelected_STRING_Diamond%'
+          output: 'Diamond'
+    display_name: '&4Bankrupt'
     lore:
-    - "&7DELETE"
-    - "&7Count: &f%deluxemenus_meta_OpenAttempts_INTEGER_0%"
-    left_click_commands:
-    - '[meta] set OpenAttempts INTEGER null'
+    - '&cDELETE'
+    - '&7Count: &b%deluxemenus_meta_DiamondCounted_INTEGER_0%'
+    click_requirement: 
+      requirements: 
+        not_null:
+          type: '>='
+          input: '%deluxemenus_meta_DiamondCounted_INTEGER_0%'
+          output: '1'
+    click_commands:
+    - '[meta] set DiamondCounted INTEGER 0'
+    - '[sound] BLOCK_LAVA_EXTINGUISH'
     - '[refresh]'
+  'CHANGE_BLOCK_DIAMOND':
+    material: COMPASS
+    slot: 4
+    priority: 1
+    view_requirement:
+      requirements: 
+        meta: 
+          type: 'string equals' 
+          input: '%deluxemenus_meta_BlockSelected_STRING_Diamond%'
+          output: 'Diamond'
+    display_name: '&bDiamond &8» &eGold'
+    lore:
+    - ''
+    - '&bCHANGE BLOCK '
+    - '&7Current: &b%deluxemenus_meta_BlockSelected_STRING_Diamond%'
+    click_commands:
+    - '[meta] set BlockSelected STRING Gold'
+    - '[sound] UI_CARTOGRAPHY_TABLE_TAKE_RESULT'
+    - '[message] &6&lDeluxe&emenus &8» &7Changing block to: &eGold'
+    - '[refresh]'
+# End - Diamond
+
+# Start - Gold
+  'ADD_GOLD':
+    material: GOLD_BLOCK
+    slot: 0
+    priority: 2
+    view_requirement:
+      requirements: 
+        meta: 
+          type: 'string equals' 
+          input: '%deluxemenus_meta_BlockSelected_STRING_Diamond%'
+          output: 'Gold'
+    display_name: '&aDeposit'
+    lore:
+    - '&aAdd 1'
+    - '&7Count: &e%deluxemenus_meta_GoldCounted_INTEGER_0%'
+    click_commands:
+    - '[meta] add GoldCounted INTEGER 1'
+    - '[sound] ENTITY_ITEM_PICKUP'
+    - '[refresh]'
+  'SUBTRACT_GOLD':
+    material: GOLD_INGOT
+    slot: 1
+    priority: 2
+    view_requirement:
+      requirements: 
+        meta: 
+          type: 'string equals' 
+          input: '%deluxemenus_meta_BlockSelected_STRING_Diamond%'
+          output: 'Gold'
+    display_name: '&cWithdraw'
+    lore:
+    - '&cSubtract 1'
+    - '&7Count: &e%deluxemenus_meta_GoldCounted_INTEGER_0%'
+    click_requirement: 
+      requirements: 
+        not_null:
+          type: '>='
+          input: '%deluxemenus_meta_GoldCounted_INTEGER_0%'
+          output: '1'
+    click_commands:
+    - '[meta] subtract GoldCounted INTEGER 1'
+    - '[sound] ENTITY_ITEM_PICKUP'
+    - '[refresh]'
+  'DELETE_GOLD':
+    material: BARRIER
+    slot: 2
+    priority: 2
+    view_requirement:
+      requirements: 
+        meta: 
+          type: 'string equals' 
+          input: '%deluxemenus_meta_BlockSelected_STRING_Diamond%'
+          output: 'Gold'
+    display_name: '&4Bankrupt'
+    lore:
+    - '&cDELETE'
+    - '&7Count: &e%deluxemenus_meta_GoldCounted_INTEGER_0%'
+    click_requirement: 
+      requirements: 
+        not_null:
+          type: '>='
+          input: '%deluxemenus_meta_GoldCounted_INTEGER_0%'
+          output: '1'
+    click_commands:
+    - '[meta] set GoldCounted INTEGER 0'
+    - '[sound] BLOCK_LAVA_EXTINGUISH'
+    - '[refresh]'
+  'CHANGE_BLOCK_GOLD':
+    material: COMPASS
+    slot: 4
+    priority: 2
+    view_requirement:
+      requirements: 
+        meta: 
+          type: 'string equals' 
+          input: '%deluxemenus_meta_BlockSelected_STRING_Diamond%'
+          output: 'Gold' 
+    display_name: '&eGold &8» &aEmerald'
+    lore:
+    - ''
+    - '&bCHANGE BLOCK '
+    - '&7Current: &e%deluxemenus_meta_BlockSelected_STRING_Diamond%'
+    click_commands:
+    - '[meta] set BlockSelected STRING Emerald'
+    - '[sound] UI_CARTOGRAPHY_TABLE_TAKE_RESULT'
+    - '[message] &6&lDeluxe&emenus &8» &7Changing block to: &aEmerald'
+    - '[refresh]'
+# End - Gold
+
+# Start - Emerald
+  'ADD_EMERALD':
+    material: EMERALD_BLOCK
+    slot: 0
+    priority: 3
+    view_requirement:
+      requirements: 
+        meta: 
+          type: 'string equals' 
+          input: '%deluxemenus_meta_BlockSelected_STRING_Diamond%'
+          output: 'Emerald'
+    display_name: '&aDeposit'
+    lore:
+    - '&aAdd 1'
+    - '&7Count: &a%deluxemenus_meta_EmeraldCounted_INTEGER_0%'
+    click_commands:
+    - '[meta] add EmeraldCounted INTEGER 1'
+    - '[sound] ENTITY_ITEM_PICKUP'
+    - '[refresh]'
+  'SUBTRACT_EMERALD':
+    material: EMERALD
+    slot: 1
+    priority: 3
+    view_requirement:
+      requirements: 
+        meta: 
+          type: 'string equals' 
+          input: '%deluxemenus_meta_BlockSelected_STRING_Diamond%'
+          output: 'Emerald'
+    display_name: '&cWithdraw'
+    lore:
+    - '&cSubtract 1'
+    - '&7Count: &a%deluxemenus_meta_EmeraldCounted_INTEGER_0%'
+    click_requirement: 
+      requirements: 
+        not_null:
+          type: '>='
+          input: '%deluxemenus_meta_EmeraldCounted_INTEGER_0%'
+          output: '1'
+    click_commands:
+    - '[meta] subtract EmeraldCounted INTEGER 1'
+    - '[sound] ENTITY_ITEM_PICKUP'
+    - '[refresh]'
+  'DELETE_EMERALD':
+    material: BARRIER
+    slot: 2
+    priority: 3
+    view_requirement:
+      requirements: 
+        meta: 
+          type: 'string equals' 
+          input: '%deluxemenus_meta_BlockSelected_STRING_Diamond%'
+          output: 'Emerald'
+    display_name: '&4Bankrupt'
+    lore:
+    - '&cDELETE'
+    - '&7Count: &a%deluxemenus_meta_EmeraldCounted_INTEGER_0%'
+    click_requirement: 
+      requirements: 
+        not_null:
+          type: '>='
+          input: '%deluxemenus_meta_EmeraldCounted_INTEGER_0%'
+          output: '1'
+    click_commands:
+    - '[meta] set EmeraldCounted INTEGER 0'
+    - '[sound] BLOCK_LAVA_EXTINGUISH'
+    - '[refresh]'
+  'CHANGE_BLOCK_EMERALD':
+    material: COMPASS
+    slot: 4
+    priority: 3
+    view_requirement:
+      requirements: 
+        meta: 
+          type: 'string equals' 
+          input: '%deluxemenus_meta_BlockSelected_STRING_Diamond%'
+          output: 'Emerald'
+    display_name: '&aEmerald &8» &bDiamond'
+    lore:
+    - ''
+    - '&bCHANGE BLOCK '
+    - '&7Current: &a%deluxemenus_meta_BlockSelected_STRING_Diamond%'
+    click_commands:
+    - '[meta] set BlockSelected STRING Diamond'
+    - '[sound] UI_CARTOGRAPHY_TABLE_TAKE_RESULT'
+    - '[message] &6&lDeluxe&emenus &8» &7Changing block to: &bDiamond'
+    - '[refresh]'
+# End - Emerald

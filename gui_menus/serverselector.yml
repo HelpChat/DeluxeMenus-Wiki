@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------- #
-#              THIS MENU WAS MADE USING DELUXEMENUS v1.12.0              #
+#              THIS MENU WAS MADE USING DELUXEMENUS v1.14.0              #
 # ---------------------------------------------------------------------- #
 #                                                                        #
 # NOTE: This menu was made for a seperate yaml-file!                     #
@@ -13,14 +13,19 @@
 # After that, replace the newly created file with this one and reload    #
 # again!                                                                 #
 # ---------------------------------------------------------------------- #
-menu_title: '&9Server'
+menu_title: '&8Server'
 open_command: server
-size: 9
+size: 27
+register_command: true
 update_interval: 1
+open_commands:
+- '[sound] BLOCK_CHEST_OPEN'
+- '[message] &6&lDeluxe&emenus &8» &7Opening &aServer &7menu. Config reworked by &ekristophergeou&7.'
 items:
+# Start - Vanilla Join
   'vanilla_server':
-    material: GRASS
-    slot: 2
+    material: GRASS_BLOCK
+    slot: 11
     priority: 1
     update: true
     view_requirement:
@@ -35,19 +40,18 @@ items:
     - '&7Online: &a%pinger_players_127.0.0.1:25565%'
     - '&7Description: &bOnly vanilla!'
     - ''
-    - '&fClick to join!'
-    - ''
-    left_click_commands:
+    - '&a&nClick to join!'
+    click_commands:
     - '[close]'
-    - '[message] &7Connecting to server &aVanilla&7...'
-    - '[connect] vanilla'
-    right_click_commands:
-    - '[close]'
-    - '[message] &7Connecting to server &aVanilla&7...'
-    - '[connect] vanilla'
+    - '[message] &6&lDeluxe&emenus &8» &7Connecting to server &aVanilla&7...'
+    - '[sound] BLOCK_NOTE_BLOCK_PLING'
+    - '[connect] vanilla<delay=20>'
+# End - Vanilla Join
+
+# Start - Vanilla Offline
   'vanilla_offline':
     material: BARRIER
-    slot: 2
+    slot: 11
     priority: 2
     update: true
     display_name: '&7Vanilla'
@@ -56,27 +60,31 @@ items:
     - '&cThis server is currently offline'
     - '&cPlease contact a staff-member,'
     - ''
-    - '&fClick to refresh!'
-    - ''
-    left_click_commands:
+    - '&a&nClick to refresh!'
+    click_commands:
     - '[refresh]'
-    right_click_commands:
-    - '[refresh]'
-  'games_server':
-    material: IRON_SWORD
-    slot: 6
+# End - Vanilla Offline
+ 
+# Start - Lobby
+  'lobby_server':
+    material: SUNFLOWER
+    slot: 15
     update: true
-    display_name: '&9Games'
+    display_name: '&eLobby'
     lore:
     - ''
-    - '&7Online: %server_online%'
-    - '&7Description: &bThe best minigames EVER!'
+    - '&7Online: &e%server_online%'
+    - '&7Description: &eThis is the lobby'
     - ''
-    - '&fYou are here!'
-    - ''
-    left_click_commands:
-    - '[message] &cYou are already on this server!'
+    - '&a&nYou are here!'
+    click_commands:
     - '[close]'
-    right_click_commands:
-    - '[message] &cYou are already on this server!'
-    - '[close]'
+    - '[message] &6&lDeluxe&emenus &8» &7You are already on this server' 
+    - '[sound] BLOCK_NOTE_BLOCK_BASS'
+# End - Lobby
+
+# Extra
+  'filler_glass':
+    material: BLACK_STAINED_GLASS_PANE
+    slots: [0-10,12-14,16-26]
+    display_name: '&l'
