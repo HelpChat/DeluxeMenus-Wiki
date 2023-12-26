@@ -3,45 +3,36 @@
 # Each rank inherits the rank just below them. This means, vip inherits default, vipplus inherits vip,
 # mvp inherits vipplus, mvpplus inherits mvp, mvpplusplus inherits mvp.
 
-menu_title: '&eRank Store!'
+menu_title: '&8Rank Store!'
 open_command: ranks
+register_command: true
+open_commands:
+- '[sound] BLOCK_CHEST_OPEN'
+- '[message] &6&lDeluxe&emenus &8» &7Opening &aRanks &7menu. Config reworked by &ekristophergeou&7.'
 size: 9
 items:
-  does_not_have_vip: # This item wil show in the menu if the player doesn't have vip or a higher rank.
+# Start - VIP
+  has_vip:
     material: copper_ingot
     slot: 2
     priority: 1
+    enchantments:
+    - DURABILITY;1 
+    hide_enchantments: true
+    view_requirement:
+      requirements:
+        has_rank:
+          type: 'has permission'
+          permission: 'group.vip'
     display_name: '&eVIP Rank'
     lore:
     - ''
     - '&7Rank: &eVIP'
     - '&7Cost: &a$500'
     - ''
-    - '&8Click to purchase.'
-    click_commands:
-    - '[takemoney] 500' # Take 500 from the player
-    - '[console] lp user %player_name% promote rankup' # Promote the player on the "rankup" track.
-    click_requirement:
-      requirements:
-        no_rank: # This requirement will check if the player has vip or a higher rank, and if they do, it won't allow them to click this item.
-          type: '!has permission'
-          permission: 'group.vip'
-          deny_commands:
-          - '[message]&cYou already own this or a higher rank!'
-          - '[close]'
-        money: # This requirement will check if the player has 500$ and if they don't, it won't allow them to click this item.
-          type: has money
-          amount: 500
-          deny_commands:
-          - '[message]&cYou don''t have enough money!'
-          - '[close]'
-    view_requirement:
-      requirements:
-        no_rank: # This requirement will check if they have the rank, and if they do, it won't display this item in the menu.
-          type: '!has permission'
-          permission: 'group.vip'
+    - '&aPURCHASED!'
 
-  has_vip: # This item will show in the menu if the player already have the vip rank or a higher rank.
+  does_not_have_vip:
     material: copper_ingot
     slot: 2
     priority: 2
@@ -51,196 +42,216 @@ items:
     - '&7Rank: &eVIP'
     - '&7Cost: &a$500'
     - ''
+    - '&8Click to purchase.'
+    click_requirement:
+      requirements:
+        money:
+          type: has money
+          amount: 500
+          deny_commands:
+          - '[message] &6&lDeluxe&emenus &8» &7You don''t have enough money!'
+          - '[sound] BLOCK_NOTE_BLOCK_BASS'
+          - '[close]'
+    click_commands:
+    - '[takemoney] 500'
+    - '[console] lp user %player_name% promote rankup'
+    - '[message] &6&lDeluxe&emenus &8» &7Congrats! Ranked up from &cMember &8» &aVIP'
+    - '[close]'
+    - '[sound] ENTITY_PLAYER_LEVEL_UP'
+# End - VIP
+
+# Start - VIP+
+  has_vipplus:
+    material: iron_ingot
+    slot: 3
+    priority: 1
+    enchantments:
+    - DURABILITY;1 
+    hide_enchantments: true
+    view_requirement:
+      requirements:
+        has_rank:
+          type: 'has permission'
+          permission: 'group.vipplus'
+    display_name: '&eVIP+ Rank'
+    lore:
+    - ''
+    - '&7Rank: &eVIP+'
+    - '&7Cost: &a$750'
+    - ''
     - '&aPURCHASED!'
-
-
 
   does_not_have_vipplus:
     material: iron_ingot
     slot: 3
-    priority: 1
-    display_name: '&eVIP+ Rank'
-    lore:
-    - ''
-    - '&7Rank: &eVIP+'
-    - '&7Cost: &a$600'
-    - ''
-    - '&8Click to purchase.'
-    click_commands:
-    - '[takemoney] 600'
-    - '[console] lp user %player_name% promote rankup'
-    click_requirement:
-      requirements:
-        no_rank:
-          type: '!has permission'
-          permission: 'group.vipplus'
-          deny_commands:
-          - '[message]&cYou already own this or a higher rank!'
-          - '[close]'
-        money:
-          type: has money
-          amount: 600
-          deny_commands:
-          - '[message]&cYou don''t have enough money!'
-          - '[close]'
-    view_requirement:
-      requirements:
-        no_rank:
-          type: '!has permission'
-          permission: 'group.vipplus'
-
-  has_vipplus:
-    material: iron_ingot
-    slot: 3
     priority: 2
     display_name: '&eVIP+ Rank'
     lore:
     - ''
     - '&7Rank: &eVIP+'
-    - '&7Cost: &a$600+'
+    - '&7Cost: &a$750'
+    - ''
+    - '&8Click to purchase.'
+    click_requirement:
+      requirements:
+        money:
+          type: has money
+          amount: 750
+          deny_commands:
+          - '[message] &6&lDeluxe&emenus &8» &7You don''t have enough money!'
+          - '[sound] BLOCK_NOTE_BLOCK_BASS'
+          - '[close]'
+    click_commands:
+    - '[takemoney] 750'
+    - '[console] lp user %player_name% promote rankup'
+    - '[message] &6&lDeluxe&emenus &8» &7Congrats! Ranked up from &cVIP &8» &aVIP+'
+    - '[close]'
+    - '[sound] ENTITY_PLAYER_LEVEL_UP'
+# End - VIP+
+
+# Start - MVP
+  has_mvp:
+    material: gold_ingot
+    slot: 4
+    priority: 1
+    enchantments:
+    - DURABILITY;1 
+    hide_enchantments: true
+    view_requirement:
+      requirements:
+        has_rank:
+          type: 'has permission'
+          permission: 'group.mvp'
+    display_name: '&eMVP Rank'
+    lore:
+    - ''
+    - '&7Rank: &eMVP'
+    - '&7Cost: &a$1500'
     - ''
     - '&aPURCHASED!'
-
-
 
   does_not_have_mvp:
     material: gold_ingot
     slot: 4
-    priority: 1
-    display_name: '&eMVP Rank'
-    lore:
-    - ''
-    - '&7Rank: &eMVP'
-    - '&7Cost: &a$700'
-    - ''
-    - '&8Click to purchase.'
-    click_commands:
-    - '[takemoney] 700'
-    - '[console] lp user %player_name% promote rankup'
-    click_requirement:
-      requirements:
-        no_rank:
-          type: '!has permission'
-          permission: 'group.mvp'
-          deny_commands:
-          - '[message]&cYou already own this or a higher rank!'
-          - '[close]'
-        money:
-          type: has money
-          amount: 700
-          deny_commands:
-          - '[message]&cYou don''t have enough money!'
-          - '[close]'
-    view_requirement:
-      requirements:
-        no_rank:
-          type: '!has permission'
-          permission: 'group.mvp'
-
-  has_mvp:
-    material: gold_ingot
-    slot: 4
     priority: 2
     display_name: '&eMVP Rank'
     lore:
     - ''
     - '&7Rank: &eMVP'
-    - '&7Cost: &a$700+'
+    - '&7Cost: &a$1500'
+    - ''
+    - '&8Click to purchase.'
+    click_requirement:
+      requirements:
+        money:
+          type: has money
+          amount: 1500
+          deny_commands:
+          - '[message] &6&lDeluxe&emenus &8» &7You don''t have enough money!'
+          - '[sound] BLOCK_NOTE_BLOCK_BASS'
+          - '[close]'
+    click_commands:
+    - '[takemoney] 1500'
+    - '[console] lp user %player_name% promote rankup'
+    - '[message] &6&lDeluxe&emenus &8» &7Congrats! Ranked up from &cVip+ &8» &aMVP'
+    - '[close]'
+    - '[sound] ENTITY_PLAYER_LEVEL_UP'
+# End - MVP
+
+# Start - MVP+
+  has_mvpplus:
+    material: DIAMOND
+    slot: 5
+    priority: 1
+    enchantments:
+    - DURABILITY;1 
+    hide_enchantments: true
+    view_requirement:
+      requirements:
+        has_rank:
+          type: 'has permission'
+          permission: 'group.mvpplus'
+    display_name: '&eMVP+ Rank'
+    lore:
+    - ''
+    - '&7Rank: &eMVP+'
+    - '&7Cost: &a$2500'
     - ''
     - '&aPURCHASED!'
-
-
 
   does_not_have_mvpplus:
-    material: emerald
-    slot: 5
-    priority: 1
-    display_name: '&eMVP+ Rank'
-    lore:
-    - ''
-    - '&7Rank: &eMVP+'
-    - '&7Cost: &a$800'
-    - ''
-    - '&8Click to purchase.'
-    click_commands:
-    - '[takemoney] 800'
-    - '[console] lp user %player_name% promote rankup'
-    click_requirement:
-      requirements:
-        no_rank:
-          type: '!has permission'
-          permission: 'group.mvpplus'
-          deny_commands:
-          - '[message]&cYou already own this or a higher rank!'
-          - '[close]'
-        money:
-          type: has money
-          amount: 800
-          deny_commands:
-          - '[message]&cYou don''t have enough money!'
-          - '[close]'
-    view_requirement:
-      requirements:
-        no_rank:
-          type: '!has permission'
-          permission: 'group.mvpplus'
-
-  has_mvpplus:
-    material: emerald
+    material: DIAMOND
     slot: 5
     priority: 2
     display_name: '&eMVP+ Rank'
     lore:
     - ''
     - '&7Rank: &eMVP+'
-    - '&7Cost: &a$800+'
+    - '&7Cost: &a$2500'
+    - ''
+    - '&8Click to purchase.'
+    click_requirement:
+      requirements:
+        money:
+          type: has money
+          amount: 2500
+          deny_commands:
+          - '[message] &6&lDeluxe&emenus &8» &7You don''t have enough money!'
+          - '[sound] BLOCK_NOTE_BLOCK_BASS'
+          - '[close]'
+    click_commands:
+    - '[takemoney] 2500'
+    - '[console] lp user %player_name% promote rankup'
+    - '[message] &6&lDeluxe&emenus &8» &7Congrats! Ranked up from &cMVP &8» &aMVP+'
+    - '[close]'
+    - '[sound] ENTITY_PLAYER_LEVEL_UP'
+# End - MVP+
+
+# Start - MVP++
+  has_mvpplusplus:
+    material: emerald
+    slot: 6
+    priority: 1
+    enchantments:
+    - DURABILITY;1 
+    hide_enchantments: true
+    view_requirement:
+      requirements:
+        has_rank:
+          type: 'has permission'
+          permission: 'group.mvpplusplus'
+    display_name: '&eMVP++ Rank'
+    lore:
+    - ''
+    - '&7Rank: &eMVP++'
+    - '&7Cost: &a$5000'
     - ''
     - '&aPURCHASED!'
-
-
 
   does_not_have_mvpplusplus:
-    material: diamond
-    slot: 6
-    priority: 1
-    display_name: '&eMVP++ Rank'
-    lore:
-    - ''
-    - '&7Rank: &eMVP++'
-    - '&7Cost: &a$900'
-    - ''
-    - '&8Click to purchase.'
-    click_commands:
-    - '[takemoney] 900'
-    - '[console] lp user %player_name% promote rankup'
-    click_requirement:
-      requirements:
-        no_rank:
-          type: '!has permission'
-          permission: 'group.mvpplusplus'
-          deny_commands:
-          - '[message]&cYou already own this or a higher rank!'
-          - '[close]'
-        money:
-          type: has money
-          amount: 900
-          deny_commands:
-          - '[message]&cYou don''t have enough money!'
-          - '[close]'
-    view_requirement:
-      requirements:
-        no_rank:
-          type: '!has permission'
-          permission: 'group.mvpplusplus'
-
-  has_mvpplusplus:
-    material: diamond
+    material: emerald
     slot: 6
     priority: 2
     display_name: '&eMVP++ Rank'
     lore:
     - ''
     - '&7Rank: &eMVP++'
-    - '&7Cost: &a$900+'
+    - '&7Cost: &a$5000'
     - ''
-    - '&aPURCHASED!'
+    - '&8Click to purchase.'
+    click_requirement:
+      requirements:
+        money:
+          type: has money
+          amount: 5000
+          deny_commands:
+          - '[message] &6&lDeluxe&emenus &8» &7You don''t have enough money!'
+          - '[sound] BLOCK_NOTE_BLOCK_BASS'
+          - '[close]'
+    click_commands:
+    - '[takemoney] 5000'
+    - '[console] lp user %player_name% promote rankup'
+    - '[message] &6&lDeluxe&emenus &8» &7Congrats! Ranked up from &cMVP+ &8» &aMVP++'
+    - '[close]'
+    - '[sound] ENTITY_PLAYER_LEVEL_UP'
+# End - MVP++

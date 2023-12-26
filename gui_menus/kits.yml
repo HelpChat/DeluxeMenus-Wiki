@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------- #
-#                This Menu Was Made Using DeluxeMenus 1.12.0             #
+#                This Menu Was Made Using DeluxeMenus 1.14.0             #
 # ---------------------------------------------------------------------- #
 #                                                                        #
 # NOTE: This menu was made for a seperate yaml-file!                     #
@@ -12,49 +12,59 @@
 #                                                                        #
 # ADD THIS INSIDE config.yml AND kits.yml INSIDE gui_menus FOLDER,       #
 # THEN RELOAD THE PLUGIN (/dm reload)                                    #
+#
 # ---------------------------------------------------------------------- #
-menu_title: '&aKits Menu'
+menu_title: '&8Kits Menu'
 open_command:
 - kit
 - kits
 size: 27
+register_command: true
 update_interval: 1
+open_commands:
+- '[sound] BLOCK_CHEST_OPEN'
+- '[message] &6&lDeluxe&emenus &8» &7Opening &aKits &7menu. Config reworked by &ekristophergeou&7.'
 open_requirement:
   requirements:
     permission:
       type: has permission
       permission: essentials.kit
-  deny_commands:
-  - '[message] '
-  - '[message] &8[&bServer&8] &7You do not have the required permission!'
-  - '[message] '
+      deny_commands: 
+      - '[message] &6&lDeluxe&emenus &8» &7This menu requires the &cessentials.kit &7permission.'
+      - '[sound] BLOCK_NOTE_BLOCK_BASS'
 items:
-  'cooldown':
-    material: ORANGE_CONCRETE
+# Start - Kit Ready
+  'kit_tools_ready':
+    material: LIME_CONCRETE
     slot: 13
     priority: 1
-    update: true
     view_requirement:
       requirements:
         permission:
           type: has permission
-          permission: essentials.kits.example
+          permission: essentials.kits.tools
         available:
           type: string equals ignorecase
-          input: '%essentials_kit_is_available_example%'
-          output: 'no'
-    display_name: ' '
+          input: '%essentials_kit_is_available_tools%'
+          output: 'yes'
+    display_name: ' &c&lTools '
     lore:
-    - "&8• &bKit: &7Example"
-    - "&8• &bStatus: &7On Cooldown"
-    - "&8• &bAvailable In: &7%essentials_kit_time_until_available_example%"
-    - ""
-    left_click_commands:
-    - "[refresh]"
-    right_click_commands:
-    - "[refresh]"
-  'available':
-    material: LIME_CONCRETE
+    - ''
+    - '&8• &7Kit: &cTools'
+    - '&8• &7Status: &aAvailable'
+    - ''
+    - '&8» &a&nClick to Claim'
+    - ''
+    click_commands:
+    - '[player] essentials:kit tools'
+    - '[message] &6&lDeluxe&emenus &8» &7You received the &cTools &7kit.'
+    - '[sound] ENTITY_ITEM_PICKUP'
+    - '[refresh]'
+# End - Kit Ready
+
+# Start - Kit Cooldown
+  'kit_tools_cooldown':
+    material: ORANGE_CONCRETE
     slot: 13
     priority: 2
     update: true
@@ -62,37 +72,41 @@ items:
       requirements:
         permission:
           type: has permission
-          permission: essentials.kits.example
+          permission: essentials.kits.tools
         available:
           type: string equals ignorecase
-          input: '%essentials_kit_is_available_example%'
-          output: 'yes'
-    display_name: ' '
+          input: '%essentials_kit_is_available_tools%'
+          output: 'no'
+    display_name: ' &c&lTools '
     lore:
-    - "&8• &bKit: &7Example"
-    - "&8• &bStatus: &7Available"
-    - ""
-    - "&8» &b&nClick to Claim"
     - ''
-    left_click_commands:
-    - '[player] essentials:kit example'
+    - '&8• &7Kit: &cTools'
+    - '&8• &7Status: &cOn Cooldown'
+    - '&8• &7Available In: &c%essentials_kit_time_until_available_tools%'
+    - ''
+    click_commands:
     - '[refresh]'
-    - '[refresh]<delay=100>'
-    right_click_commands:
-    - '[player] essentials:kit example'
-    - '[refresh]'
-    - '[refresh]<delay=100>'
+# End - Kit Cooldown
+
+# Start - Kit Locked
   'locked':
     material: RED_CONCRETE
     slot: 13
     priority: 3
-    update: true
-    display_name: ' '
+    display_name: ' &c&lTools '
     lore:
-    - "&8• &bKit: &7Example"
-    - "&8• &bStatus: &7Locked"
-    - ""
-    left_click_commands:
-    - "[close]"
-    right_click_commands:
-    - "[close]"
+    - ''
+    - '&8• &bKit: &cTools'
+    - '&8• &bStatus: &cLocked'
+    - ''
+    click_commands:
+    - '[close]'
+    - '[message] &6&lDeluxe&emenus &8» &7You don''t have access to this kit!'
+    - '[sound] BLOCK_NOTE_BLOCK_BASS'
+# End - Kit Locked
+
+# Extra
+  'filler_glass':
+    material: BLACK_STAINED_GLASS_PANE
+    slots: [0-12,14-26]
+    display_name: '&l'
