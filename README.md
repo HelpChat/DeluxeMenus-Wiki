@@ -24,7 +24,7 @@ Reloads the menus and settings
 Execute any action for the player
 
 ## Configuration
-Visit our [wiki](https://wiki.helpch.at/clips-plugins/deluxemenusi) to get info about how to make GUIs, items, etc.  
+Visit our [wiki](https://wiki.helpch.at/clips-plugins/deluxemenus) to get info about how to make GUIs, items, etc.  
 If you need support, join our Help chat-Discord (Link below).
 
 ## Permissions
