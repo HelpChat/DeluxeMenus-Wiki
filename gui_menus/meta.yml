@@ -10,7 +10,7 @@ open_requirement:
       permission: deluxemenus.metacounting
 open_commands:
 - '[sound] BLOCK_CHEST_OPEN'
-- '[message] &6&lDeluxe&emenus &8» &7Opening &aMeta &7menu. Config reworked by &ekristophergeou&7.'
+- '[message] &6&lDeluxe&emenus &8» &7Opening &aMeta &7menu.'
 items:
 # Start - Diamond
   'ADD_DIAMOND':
