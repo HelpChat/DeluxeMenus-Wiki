@@ -8,7 +8,7 @@ open_command: ranks
 register_command: true
 open_commands:
 - '[sound] BLOCK_CHEST_OPEN'
-- '[message] &6&lDeluxe&emenus &8» &7Opening &aRanks &7menu. Config reworked by &ekristophergeou&7.'
+- '[message] &6&lDeluxe&emenus &8» &7Opening &aRanks &7menu.'
 size: 9
 items:
 # Start - VIP
