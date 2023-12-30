@@ -20,7 +20,7 @@ register_command: true
 update_interval: 1
 open_commands:
 - '[sound] BLOCK_CHEST_OPEN'
-- '[message] &6&lDeluxe&emenus &8» &7Opening &aServer &7menu. Config reworked by &ekristophergeou&7.'
+- '[message] &6&lDeluxe&emenus &8» &7Opening &aServer &7menu.'
 items:
 # Start - Vanilla Join
   'vanilla_server':
